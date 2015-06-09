@@ -29,17 +29,41 @@ function initSlideEngine()
     // jump to next slide
     se.nextSlide = function()
     {
-	se.index += 1;
+	// only if there is a next slide
+	if(se.index < se.slides.length-1)
+	{
+	    se.index += 1;
+	}
 	se.updateView();
     }
 
-    // create navbar buttons 
+    // go back to previous slide
+    se.previousSlide = function()
+    {
+	if(se.index>0)
+	{
+	    se.index -= 1;
+	}
+	else{se.index = 0;}
+	se.updateView();
+    }
+
+
+    // create navbar buttons
     navbar = document.getElementById("navBar");
+    
+    prevbtn = document.createElement("span");
+    prevbtn.className = "btn";
+    prevbtn.innerHTML = "Tilbake";
+    prevbtn.onclick = se.previousSlide;
+    navbar.appendChild(prevbtn);
+    
     nextbtn = document.createElement("span");
     nextbtn.className = "btn";
     nextbtn.innerHTML = "Neste";
     nextbtn.onclick = se.nextSlide;
     navbar.appendChild(nextbtn);
+
 
     // update the view before starting 
     se.updateView()

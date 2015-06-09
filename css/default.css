@@ -1,4 +1,8 @@
-
+/*********************************
+ * Default css for the project.
+ * Make's the project work 
+ * @author Per-Henrik Kvalnes - 2015
+ *********************************/
 #navBar
 {
     position:fixed;
@@ -7,10 +11,21 @@
     bottom:0px;
     height:40px;
     background:#EEE;
-
 }
 
-#navBar.btn
+.btn
 {
-    border:1 px solid black;
+    position:relative;
+    top:11px;
+    padding:5px;
+    margin:4px;
+    border:1px solid #AAA;
+    border-radius:5px;
+    background:#CCC;
 }
+
+.btn:hover
+{
+    background:#AAA;
+}
+	     
