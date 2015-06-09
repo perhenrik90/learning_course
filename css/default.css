@@ -1,0 +1,16 @@
+
+#navBar
+{
+    position:fixed;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    height:40px;
+    background:#EEE;
+
+}
+
+#navBar.btn
+{
+    border:1 px solid black;
+}
