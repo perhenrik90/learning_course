@@ -35,6 +35,16 @@
     background:#CCC;
 }
 
+.btn-disabled
+{
+    position:relative;
+    top:11px;
+    padding:5px;
+    margin:4px;
+    color:#EEE;
+    background-color:#FFF;
+}
+
 .btn:hover
 {
     background:#AAA;

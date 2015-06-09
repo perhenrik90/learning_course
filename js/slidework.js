@@ -49,6 +49,20 @@ function initSlideEngine()
     }
 
 
+    // set next button inactive
+    se.disableNextButton = function()
+    {
+	nextbtn.className = "btn-disabled";
+	nextbtn.onclick = "";
+    }
+    
+    // set next button active
+    se.enableNextButton = function()
+    {
+	nextbtn.className = "btn";
+	nextbtn.onclick = se.nextSlide;
+    }
+
     // create navbar buttons
     navbar = document.getElementById("navBar");
     
