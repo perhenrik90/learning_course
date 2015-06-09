@@ -1,8 +1,18 @@
-/*********************************
+/****************************************
  * Default css for the project.
  * Make's the project work 
  * @author Per-Henrik Kvalnes - 2015
- *********************************/
+ ****************************************/
+
+/** slide styling **/
+.slide
+{
+    margin:25px;
+}
+
+
+
+/** Navigation styling **/
 #navBar
 {
     position:fixed;
@@ -11,6 +21,7 @@
     bottom:0px;
     height:40px;
     background:#EEE;
+    text-align:right;
 }
 
 .btn
