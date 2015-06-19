@@ -37,7 +37,7 @@ if __name__ == "__main__":
 		sys.exit()
 
 	if args[0] == "createScorm":
-		scorm.createScorm("options")
+		scorm.createScorm(conf)
 
 
 
