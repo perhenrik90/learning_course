@@ -1,0 +1,14 @@
+/************************************************
+ * Stylesheet for welcomepage of the course 
+ * @author Per-Henrik Kvalnes 2015
+ ************************************************/
+
+body
+{
+	padding:150px;
+}
+
+h1
+{
+	font-size:50px;
+}

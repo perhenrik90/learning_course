@@ -104,8 +104,8 @@ class ManifestBuilder:
 
 #
 # Main function for the Scorm builder
+# Called from manage.py
 #
-
 def createScorm(conf):
 	print("Creating manifestfile")
 	title = conf["projectname"]
@@ -114,6 +114,9 @@ def createScorm(conf):
 	mb = ManifestBuilder(title=title, orgname=orgname)
 	mb.buildTree()
 	mb.buildOrganizations()
+
+	listOfFiles = glob.glob('*')
+        mb.buildResources(listOfFiles)
 	print mb.tree.toprettyxml()
  
 
