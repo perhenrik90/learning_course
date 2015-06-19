@@ -34,6 +34,11 @@ function initSlideEngine()
 	{
 	    se.index += 1;
 	}
+	if(se.index == se.slides.length-1)
+	{
+		setCourseComplete();
+	}
+
 	se.updateView();
     }
 
@@ -78,8 +83,46 @@ function initSlideEngine()
     nextbtn.onclick = se.nextSlide;
     navbar.appendChild(nextbtn);
 
+    if(CONF['type'] == "scorm1.2")
+	{
+	   SCORMInit();
+	}
 
     // update the view before starting 
     se.updateView()
     return se;
 }
+
+
+function setCourseComplete()
+{
+    	if(CONF['type'] == "scorm1.2")
+	{
+		SCORMComplete()
+	}	
+}
+
+
+
+
+// SCORM tools
+function SCORMInit()
+{
+	s = pipwerks.SCORM.init()	
+	if(!s){alert("Could not connect to the LMS!")}
+}
+
+function SCORMComplete()
+{
+	s = pipwerks.SCORM.set('cmi.core.lesson_status', 'completed')
+	if(!s){alert('Could not set the course to completed!');}
+	SCORMQuit();
+}
+
+function SCORMQuit()
+{
+	pipwerks.SCORM.quit()
+}
+
+
+

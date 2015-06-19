@@ -6,6 +6,13 @@ reuseable part's when coding e-learning insted of using an authoring tool.
 
 The framework will support SCORM and TinCan API. 
 
+External Libaries 
+-----------------
+This project uses pipwerks JavaScript SCORM API Wrapper developed by
+Philip Hutchison. Website: http://pipwerks.com/ or https://github.com/pipwerks/scorm-api-wrapper
+
+
+
 
 Configue
 ---------
