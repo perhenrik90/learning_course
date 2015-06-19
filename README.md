@@ -10,7 +10,7 @@ The framework will support SCORM and TinCan API.
 Configue
 ---------
 The project configurations are stored in conf.js. 
-Both the html project and the managhe.py use this
+Both the html project and the manage.py use this
 configuration file. 
 
 
@@ -21,6 +21,6 @@ Manage.py is the main entry to use the python tools.
 Tools developed:
 
 python manage.py createScorm > imsmanifest.xml
-Creates an imsmanifest file contained in a SCORM package. 
+| Creates an imsmanifest file contained in a SCORM package. 
 
 

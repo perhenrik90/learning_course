@@ -42,7 +42,6 @@ class ManifestBuilder:
 		itemtag.appendChild(titleitem)
 
 	def buildOrganizations(self):
-		print("Building organization")
 		# setup tree an main tag
 		t = self.tree
 		manifestTag = t.documentElement
@@ -65,7 +64,6 @@ class ManifestBuilder:
 		return False
 	
 	def buildResources(self, listOfFiles):
-		print("Building resources:")
 		t = self.tree
 		manifestTag = t.documentElement
 		# build <resources>
@@ -107,7 +105,6 @@ class ManifestBuilder:
 # Called from manage.py
 #
 def createScorm(conf):
-	print("Creating manifestfile")
 	title = conf["projectname"]
 	orgname = conf["organization"]
 	
@@ -121,7 +118,6 @@ def createScorm(conf):
  
 
 if __name__ == "__main__":
-	print glob.glob('*')
 	# excrat arguments
 	orgname = sys.argv[1]
 	title = sys.argv[2]
