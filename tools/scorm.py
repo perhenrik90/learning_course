@@ -2,20 +2,21 @@
 # SCORM tools
 # @author Per-Henrik Kvalnes 2015
 #
-
-def createScorm(projectConfig):
-	print("Creating manifestfile")
-	return 1
-
+import copy
+import glob
+import sys
+import xml.dom.minidom as minidom
+	
 #########################################
 # XML SCORM manifest building class #
 #########################################
 class ManifestBuilder:
+
 	def __init__(self, orgname="org", title="tittle"):
-	self.orgid = orgname
-	self.title = title
-	self.resourceid = "main"
-	self.mainfile = "index.html"
+		self.orgid = orgname
+		self.title = title
+		self.resourceid = "main"
+		self.mainfile = "index.html"
 
 ############################
 # ORGANIZATIONS FUNCTIONS #
@@ -52,51 +53,69 @@ class ManifestBuilder:
 		self.buildOneOrganization(orgmaster, self.orgid, self.title)
 
 
-#######################
-# RESOURCES FUNCTIONS #
-#######################
-def isInIgnoreList(self, filename):
-	ignoreList = ["index.html", "imsmanifest.xml"]
-	for f in ignoreList:
-	if filename == f:
-	return True
-	return False
-	def buildResources(self, listOfFiles):
-	print("Building resources:")
-	t = self.tree
-	manifestTag = t.documentElement
-	# build <resources>
-	resmaster = t.createElement("resources")
-	manifestTag.appendChild(resmaster)
 
-	# if not mainfile (index.html) in the array of files
-	if not self.mainfile in listOfFiles:
-	print("WARNING: index.html is not pressent in your working direcotry!")
-	# create the main resource
-	mres = t.createElement("resource")
-	mres.setAttribute("identifier", self.resourceid)
-	mres.setAttribute("type", "webcontent")
-	mres.setAttribute("adlcp:scormtype", "sco")
-	mres.setAttribute("href", self.mainfile)
-	resmaster.appendChild(mres)
-	# iterate over file list. Resource id is the ref to main file. I sould be index.html
-	for filename in listOfFiles:
-		if self.mainfile != filename and not self.isInIgnoreList(filename):
-			mres = t.createElement("resource")
-			mres.setAttribute("identifier", filename)
-			mres.setAttribute("href",filename)
-			resmaster.appendChild(mres)
-##################################
-# Setup the main tree structure #
-##################################
-def buildTree(self):
-	main = "<manifest><metadata>"
-	main += "<schema>ADL SCORM</schema>"
-	main += "<schemaversion>1.2</schemaversion>"
-	main += "</metadata></manifest>"
-	tree = minidom.parseString(main)
-	self.tree = tree
+	#######################
+	# RESOURCES FUNCTIONS #
+	#######################
+	def isInIgnoreList(self, filename):
+		ignoreList = ["index.html", "imsmanifest.xml"]
+		for f in ignoreList:
+			if filename == f:
+				return True
+		return False
 	
+	def buildResources(self, listOfFiles):
+		print("Building resources:")
+		t = self.tree
+		manifestTag = t.documentElement
+		# build <resources>
+		resmaster = t.createElement("resources")
+		manifestTag.appendChild(resmaster)
+
+		# if not mainfile (index.html) in the array of files
+		if not self.mainfile in listOfFiles:
+			print("WARNING: index.html is not pressent in your working direcotry!")
+		# create the main resource
+		mres = t.createElement("resource")
+		mres.setAttribute("identifier", self.resourceid)
+		mres.setAttribute("type", "webcontent")
+		mres.setAttribute("adlcp:scormtype", "sco")
+		mres.setAttribute("href", self.mainfile)
+		resmaster.appendChild(mres)
+		# iterate over file list. Resource id is the ref to main file. I sould be index.html
+		for filename in listOfFiles:
+			if self.mainfile != filename and not self.isInIgnoreList(filename):
+				mres = t.createElement("resource")
+				mres.setAttribute("identifier", filename)
+				mres.setAttribute("href",filename)
+				resmaster.appendChild(mres)
+	
+
+	##################################
+	# Setup the main tree structure #
+	##################################
+	def buildTree(self):
+		main = "<manifest><metadata>"
+		main += "<schema>ADL SCORM</schema>"
+		main += "<schemaversion>1.2</schemaversion>"
+		main += "</metadata></manifest>"
+		tree = minidom.parseString(main)
+		self.tree = tree
+
+#
+# Main function for the Scorm builder
+#
+
+def createScorm(projectConfig):
+	print("Creating manifestfile")
+	title = "Test"
+	orgname = "testorg"
+	mb = ManifestBuilder(title=title, orgname=orgname)
+	mb.buildTree()
+	mb.buildOrganizations()
+	print mb.tree.toprettyxml()
+ 
+
 if __name__ == "__main__":
 	print glob.glob('*')
 	# excrat arguments
