@@ -20,7 +20,8 @@
     right:0px;
     bottom:0px;
     height:60px;
-    background:#EEE;
+    background:#FFF;
+    background:rgba(255,255,255,0.8);
     text-align:right;
 }
 

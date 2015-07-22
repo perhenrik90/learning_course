@@ -89,6 +89,10 @@ function initSlideEngine()
     {
 	SCORMInit();
     }
+    if(CONF['type'] == "tincan")
+    {
+	TinCanInit();
+    }
 
     // update the view before starting 
     se.updateView()
@@ -153,6 +157,32 @@ function initTinCan()
     return tincan
 }
 
+// Calls when the users starts the project
+function TinCanInit()
+{
+    if(CONF["manual_registration"])
+    {
+	CONF["name"] = getParameterByName("name");
+	CONF["email"] = getParameterByName("email");
+    }
+    tc = initTinCan();
+    tc.sendStatement(
+	{
+	    actor:{
+		mbox:CONF["email"],
+		name:CONF["name"]
+	    },
+	    verb:{
+		id:"http://adlnet.gov/expapi/verbs/initialized",
+	    "display":{"en-US":"Initialized","nb":"Startet"}},
+	    target:{id:CONF["siteurl"],"definition":
+		   {name:{"en-US":CONF["projectname"],
+			  "nb":CONF["projectname"]}}}
+	}
+    );
+}
+
+
 // Calls when projects is complete and tincan option is set
 function TinCanComplete()
 {
@@ -163,8 +193,12 @@ function TinCanComplete()
 		mbox:CONF["email"],
 		name:CONF["name"]
 	    },
-	    verb:{id:"http://adlnet.gov/expapi/verbs/completed"},
-	    target:{id:CONF["siteurl"]}
+	    verb:{
+		id:"http://adlnet.gov/expapi/verbs/completed",
+	    "display":{"en-US":"Completed","nb":"Fullførte"}},
+	    target:{id:CONF["siteurl"],"definition":
+		   {name:{"en-US":CONF["projectname"],
+			  "nb":CONF["projectname"]}}}
 	}
     );
 }

@@ -11,4 +11,5 @@ CONF = {
     "tcusername":"",
     "tcpassword":"",
     "siteurl":"",
+    "manual_registration":"",
 }
