@@ -11,6 +11,9 @@ External Libaries
 This project uses pipwerks JavaScript SCORM API Wrapper developed by
 Philip Hutchison. Website: http://pipwerks.com/ or https://github.com/pipwerks/scorm-api-wrapper
 
+For TinCan export the project uses JavaScript libary from Rustici Software.
+http://tincanapi.com/libraries/
+
 
 
 
