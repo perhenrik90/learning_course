@@ -1,5 +1,7 @@
 /***********************************************
  * Slidework defines the framework for slides
+ * Can be seen as the 'slide engine'.
+ * 
  * @author Per-Henrik Kvalnes
  ***********************************************/
 
@@ -84,9 +86,9 @@ function initSlideEngine()
     navbar.appendChild(nextbtn);
 
     if(CONF['type'] == "scorm1.2")
-	{
-	   SCORMInit();
-	}
+    {
+	SCORMInit();
+    }
 
     // update the view before starting 
     se.updateView()
@@ -96,16 +98,21 @@ function initSlideEngine()
 
 function setCourseComplete()
 {
-    	if(CONF['type'] == "scorm1.2")
-	{
-		SCORMComplete()
-	}	
+    if(CONF['type'] == "scorm1.2")
+    {
+	SCORMComplete()
+    }	
+    if(CONF['type'] == "tincan")
+    {
+	TinCanComplete()
+    }
 }
 
 
 
 
 // SCORM tools
+// Uses the Scorm Libary
 function SCORMInit()
 {
 	s = pipwerks.SCORM.init()	
@@ -124,5 +131,40 @@ function SCORMQuit()
 	pipwerks.SCORM.quit()
 }
 
+/******************
+ * Tin Can tools
+ *******************/
 
+// retruns an tincan object
+function initTinCan()
+{
+    var tincan = new TinCan (
+    {
+        recordStores: [
+            {
+                endpoint: CONF["endpoint"],
+                username: CONF["tcusername"],
+                password: CONF["tcpassword"],
+                allowFail: false
+            }
+        ]
+    }
+    );
+    return tincan
+}
 
+// Calls when projects is complete and tincan option is set
+function TinCanComplete()
+{
+    tc = initTinCan();
+    tc.sendStatement(
+	{
+	    actor:{
+		mbox:CONF["email"],
+		name:CONF["name"]
+	    },
+	    verb:{id:"http://adlnet.gov/expapi/verbs/completed"},
+	    target:{id:CONF["siteurl"]}
+	}
+    );
+}
