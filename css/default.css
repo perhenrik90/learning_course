@@ -19,38 +19,24 @@
     left:0px;
     right:0px;
     bottom:0px;
-    height:60px;
     background:#FFF;
     background:rgba(255,255,255,0.8);
     text-align:right;
+    padding-bottom:4px;
+    padding-right:8px;
 }
 
 .btn
 {
     position:relative;
-    top:11px;
-    padding:5px;
-    margin:4px;
-    border:1px solid #AAA;
-    border-radius:5px;
-    background:#CCC;
-    font-weight:bold;
-    font-size:26px;
-    font-family:sans-serif;
 }
 
 .btn-disabled
 {
-    position:relative;
-    top:11px;
-    padding:5px;
-    margin:4px;
-    color:#EEE;
-    background-color:#FFF;
 }
 
 .btn:hover
 {
-    background:#AAA;
+
 }
 	     

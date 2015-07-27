@@ -5,13 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="css/default.css" type="text/css"></link>
-<script src="js/urltools.js"></script>
-<script src="conf.js"></script>
-<script src="lib/SCORM_API_wrapper.js"></script>
-<script src="lib/tincan.js"></script>
+<!-- init bootstrap -->
+<link rel="stylesheet" href="lib/bootstrap.min.css" type="text/css"></link>
 
-<script src="js/slidework.js"></script>
+
+<link rel="stylesheet" href="css/default.css" type="text/css"></link>
+
+
+
 
 <title>E-learning</title>
 
@@ -19,19 +20,66 @@
 <body>
 <!-- write your slides here -->
 <div class="slide">
-<p>The project consist of slides defined by the a div tag with
-'slide' class name.</p>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Learninghack</h1>
+      <p>A bootsrap e-learning template with TinCan and SCORM support.</p>
+      <p>This template is usefull when you wish to make responsive content and 
+	want it to communicate with e-learning systems.</p>
+    </div>
+  </div>
 </div>
 
 <div class="slide">
-<p>Test slide 2</p>
+<!-- write bootstrap here -->
+<div class="row">
+  <div class="col-md-12">
+    <h1>What can you do with this template?</h1>
+  </div>
+<div class="col-md-4">
+<p>The project consist of slides defined by the a div tag with
+  'slide' class name.</p>
 </div>
+<div class="col-md-4">
+  <p>Inside a slidetag you can use bootstrap code 
+     to define the content</p>
+</div>
+<div class="col-md-4">
+  <p>The content will then be responsive!</p>
+</div>
+</div>
+</div>
+<!-- end slide 1 -->
+
+
+<!-- slide 2 -->
+<div class="slide">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Why does it matter?</h1>
+      <p>Not evereything is posible to make with an e-learning autheringtool.
+	Therefore I have made this template</p>
+    </div>
+  </div>
+</div>
+
+<!-- the navigation bar is updated by slidework.js -->
 <div id="navBar">
-
 </div>
-</body>
 
+<!-- execute scripts -->
+<script src="lib/jquery-2.1.4.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="js/urltools.js"></script>
+<script src="conf.js"></script>
+<script src="lib/SCORM_API_wrapper.js"></script>
+<script src="lib/tincan.js"></script>
+<script src="js/slidework.js"></script>
 <script>
 var se = initSlideEngine();
 </script>
+</body>
+
+
+
 </html>

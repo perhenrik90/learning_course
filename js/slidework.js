@@ -74,13 +74,13 @@ function initSlideEngine()
     navbar = document.getElementById("navBar");
     
     prevbtn = document.createElement("span");
-    prevbtn.className = "btn";
+    prevbtn.className = "btn btn-default";
     prevbtn.innerHTML = "Tilbake";
     prevbtn.onclick = se.previousSlide;
     navbar.appendChild(prevbtn);
     
     nextbtn = document.createElement("span");
-    nextbtn.className = "btn";
+    nextbtn.className = "btn btn-default";
     nextbtn.innerHTML = "Neste";
     nextbtn.onclick = se.nextSlide;
     navbar.appendChild(nextbtn);

@@ -5,24 +5,41 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- init bootstrap -->
+<link rel="stylesheet" href="lib/bootstrap.min.css" type="text/css"></link>
+
 <link rel="stylesheet" href="css/default.css" type="text/css"></link>
 <link rel="stylesheet" href="css/firstpage.css" type="text/css"></link>
 <style>
 
 </style>
-<script src="conf.js"></script>
-<script src="js/slidework.js"></script>
+
 <title>E-learning</title>
 
 </head>
 <body onload="onload()">
+<div class="container">
   <form action="slides.html" method="GET">
-    <div id="inputFields">
-      <input name="name" id="name" value="navn"></input>
-      <input name="email"  id="email" type="email" value="epost"></input>
+    <div id="inputFields" class="row">
+      <div class="col-md-4">
+	<input name="name" id="name" value="navn"></input>
+      </div>
+      <div class="col-md-4">
+	<input name="email"  id="email" type="email" value="epost@none.no"></input>
+      </div>
     </div>
-    <input type="submit" value="Start kurs"></input>
+
+    <div class="row">
+      <div class="col-md-6">
+	<input type="submit" value="Start kurs" class="btn btn-default"></input>
+      </div>
+    </div>
   </form>
+
+  <script src="lib/jquery-2.1.4.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="conf.js"></script>
+  <script src="js/slidework.js"></script>
   <script>
     function onload()
     {
@@ -39,5 +56,6 @@
     }
     }
   </script>
+</div>
 </body>
 </html>
