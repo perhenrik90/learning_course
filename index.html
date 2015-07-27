@@ -7,23 +7,36 @@
 
 <link rel="stylesheet" href="css/default.css" type="text/css"></link>
 <link rel="stylesheet" href="css/firstpage.css" type="text/css"></link>
+<style>
 
+</style>
 <script src="conf.js"></script>
 <script src="js/slidework.js"></script>
 <title>E-learning</title>
 
 </head>
-<body>
+<body onload="onload()">
   <form action="slides.html" method="GET">
-    <input name="name" id="name" type="hidden" value="navn"></input>
-    <input name="email"  id="email" type="hidden" value="epost"></input>
+    <div id="inputFields">
+      <input name="name" id="name" value="navn"></input>
+      <input name="email"  id="email" type="email" value="epost"></input>
+    </div>
     <input type="submit" value="Start kurs"></input>
   </form>
   <script>
+    function onload()
+    {
+
     if(CONF["manual_registration"])
     {
-        document.getElementById("email").type = "email";
-        document.getElementById("name").type = "text";
+        var ifld = document.getElementById("inputFields");
+        
+    }
+    else
+    {
+    var ifld = document.getElementById("inputFields");
+    ifld.style.display = "none";
+    }
     }
   </script>
 </body>

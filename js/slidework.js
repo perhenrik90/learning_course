@@ -184,8 +184,11 @@ function TinCanInit()
 
 
 // Calls when projects is complete and tincan option is set
+var isSetComplete = false;
 function TinCanComplete()
 {
+    if(isSetComplete){return;}
+
     tc = initTinCan();
     tc.sendStatement(
 	{
@@ -201,4 +204,5 @@ function TinCanComplete()
 			  "nb":CONF["projectname"]}}}
 	}
     );
+    isSetComplete = true;
 }

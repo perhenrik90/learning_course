@@ -11,5 +11,5 @@ CONF = {
     "tcusername":"",
     "tcpassword":"",
     "siteurl":"",
-    "manual_registration":"",
-}
+    "manual_registration":false
+};
