@@ -15,6 +15,7 @@ For TinCan export the project uses JavaScript libary from Rustici Software.
 http://tincanapi.com/libraries/
 
 Bootstrap is used to create a responsive design.
+Use bootstraps elements inside every <div class="slide"> tag. 
 http://getbootstrap.com/
 
 
