@@ -1,4 +1,4 @@
-CONF = {
+CONF= {
     "projectname":"<name>",
     "author":"<author_name>",
     "organization":"<org_name>",
@@ -12,4 +12,4 @@ CONF = {
     "tcpassword":"",
     "siteurl":"",
     "manual_registration":true
-};
+}
