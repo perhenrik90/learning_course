@@ -14,6 +14,8 @@ Philip Hutchison. Website: http://pipwerks.com/ or https://github.com/pipwerks/s
 For TinCan export the project uses JavaScript libary from Rustici Software.
 http://tincanapi.com/libraries/
 
+Bootstrap is used to create a responsive design.
+http://getbootstrap.com/
 
 
 
