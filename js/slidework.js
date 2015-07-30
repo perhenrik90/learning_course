@@ -48,6 +48,19 @@ function initSlideEngine()
 	se.updateView();
     }
 
+    se.setSlideByTitle = function(e)
+    {
+	title = e.target.innerHTML;
+	for(i = 0; i < se.slides.length; i++)
+	{
+	    obj = se.slides[i];
+	    if(obj.title == title)
+	    {
+		se.index = i;
+	    }
+	}
+	se.updateView();
+    }
 
     // go back to previous slide
     se.previousSlide = function()
@@ -83,8 +96,7 @@ function initSlideEngine()
     // if statusbar, create it
     if(CONF['course_progressbar'])
     {
-	bardiv = document.createElement("div");
-	navbar.appendChild(bardiv);
+	bardiv = document.getElementById("bardiv");
 	bardiv.className = "progress";
 	pbar = document.createElement("div");
 	bardiv.appendChild(pbar);
@@ -97,19 +109,20 @@ function initSlideEngine()
 
 
     // create the buttons
+    pager = document.getElementById("pager");
     prevbtn = document.createElement("li");
     a = document.createElement("a");
     a.innerHTML = "Tilbake";
     a.onclick = se.previousSlide;
     prevbtn.appendChild(a);
-    navbar.appendChild(prevbtn);
+    pager.appendChild(prevbtn);
     
     nextbtn = document.createElement("li");
     a = document.createElement("a");
     a.innerHTML = "Neste";
     a.onclick = se.nextSlide;
     nextbtn.appendChild(a);
-    navbar.appendChild(nextbtn);
+    pager.appendChild(nextbtn);
 
 
 
@@ -234,4 +247,5 @@ function TinCanComplete()
 	}
     );
     isSetComplete = true;
+    return se;
 }
