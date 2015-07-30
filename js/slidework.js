@@ -26,6 +26,10 @@ function initSlideEngine()
 		slide.style.display = "";
 	    }
 	}
+	if(CONF['course_progressbar'])
+	{
+	    $("#course_progress_bar").css('width', (se.index/(se.slides.length-1)*100)+"%")
+	}
     }
 
     // jump to next slide
@@ -43,6 +47,7 @@ function initSlideEngine()
 
 	se.updateView();
     }
+
 
     // go back to previous slide
     se.previousSlide = function()
@@ -70,9 +75,28 @@ function initSlideEngine()
 	nextbtn.onclick = se.nextSlide;
     }
 
+
+
     // create navbar buttons
     navbar = document.getElementById("navBar");
     
+    // if statusbar, create it
+    if(CONF['course_progressbar'])
+    {
+	bardiv = document.createElement("div");
+	navbar.appendChild(bardiv);
+	bardiv.className = "progress";
+	pbar = document.createElement("div");
+	bardiv.appendChild(pbar);
+    
+	pbar.className = "progress-bar";
+	pbar.role = "progressbar";
+	pbar.id = "course_progress_bar";
+    }
+
+
+
+    // create the buttons
     prevbtn = document.createElement("li");
     a = document.createElement("a");
     a.innerHTML = "Tilbake";
@@ -87,6 +111,9 @@ function initSlideEngine()
     nextbtn.appendChild(a);
     navbar.appendChild(nextbtn);
 
+
+
+    // init reporting tools 
     if(CONF['type'] == "scorm1.2")
     {
 	SCORMInit();
