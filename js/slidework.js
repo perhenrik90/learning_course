@@ -73,16 +73,18 @@ function initSlideEngine()
     // create navbar buttons
     navbar = document.getElementById("navBar");
     
-    prevbtn = document.createElement("span");
-    prevbtn.className = "btn btn-default";
-    prevbtn.innerHTML = "Tilbake";
-    prevbtn.onclick = se.previousSlide;
+    prevbtn = document.createElement("li");
+    a = document.createElement("a");
+    a.innerHTML = "Tilbake";
+    a.onclick = se.previousSlide;
+    prevbtn.appendChild(a);
     navbar.appendChild(prevbtn);
     
-    nextbtn = document.createElement("span");
-    nextbtn.className = "btn btn-default";
-    nextbtn.innerHTML = "Neste";
-    nextbtn.onclick = se.nextSlide;
+    nextbtn = document.createElement("li");
+    a = document.createElement("a");
+    a.innerHTML = "Neste";
+    a.onclick = se.nextSlide;
+    nextbtn.appendChild(a);
     navbar.appendChild(nextbtn);
 
     if(CONF['type'] == "scorm1.2")
