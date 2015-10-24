@@ -1,6 +1,6 @@
-Learning Hack
-=============
-A hackers framework to a HTML5 e-learning project. You must have some skills
+Learning Course Template
+========================
+A framework to a HTML5 e-learning project. You must have some skills
 in programming for web to use this framework. This project consists of
 reuseable part's when coding e-learning insted of using an authoring tool.
 
