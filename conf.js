@@ -1,11 +1,10 @@
-CONF= {
+CONF={
     "projectname":"Project name",
-    "author":"<author_name>",
-    "organization":"<org_name>",
-    "publised":"<year published>",
+    "author":"author",
+    "organization":"<org_name",
+    "publised":"year published",
     "type":"scorm1.2",
-    'course_progressbar':true,
-    // tincan options
+    "course_progressbar":true,
     "endpoint":"",
     "name":"",
     "email":"",
