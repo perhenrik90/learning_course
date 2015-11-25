@@ -136,6 +136,22 @@ function initSlideEngine()
 	TinCanInit();
     }
 
+    // setup keybindings fo the document
+    document.onkeydown = function(e)
+    {
+	switch(e.which)
+	{
+	    // case of left key
+	    case 37: se.previousSlide();
+	    break;
+	    // case of right key
+	    case 39: se.nextSlide();
+	    break;
+	}
+    }
+
+
+    
     // update the view before starting 
     se.updateView()
     return se;
