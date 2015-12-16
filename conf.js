@@ -1,7 +1,7 @@
 CONF={
     "projectname":"Project name",
     "author":"author",
-    "organization":"<org_name",
+    "organization":"org_name",
     "publised":"year published",
     "type":"scorm1.2",
     "course_progressbar":true,
@@ -11,5 +11,5 @@ CONF={
     "tcusername":"",
     "tcpassword":"",
     "siteurl":"",
-    "manual_registration":true
+    "manual_registration":false
 }

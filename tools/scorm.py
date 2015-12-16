@@ -114,7 +114,11 @@ def createScorm(conf):
 
 	listOfFiles = glob.glob('*')
         mb.buildResources(listOfFiles)
-	print mb.tree.toprettyxml()
+
+	xmlfile = open("imsmanifest.xml","w")
+	txtdata = mb.tree.toprettyxml()
+	print(txtdata)
+	xmlfile.write(txtdata)
  
 
 if __name__ == "__main__":
