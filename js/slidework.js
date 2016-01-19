@@ -200,6 +200,8 @@ function SCORMQuit()
 // retruns an tincan object
 function initTinCan()
 {
+	if(CONF["manual_registration"] == true)
+	{
     var tincan = new TinCan (
     {
         recordStores: [
@@ -213,23 +215,53 @@ function initTinCan()
     }
     );
     return tincan
+	}
+
+	/** if LRS data is given by parameter **/
+	var endpoint_str = getParameterByName("endpoint");
+   	var auth_str = getParameterByName("auth");
+   	console.log(auth_str);
+	var tincan = new TinCan (
+    {
+            recordStores: [
+            {
+                endpoint:endpoint_str,
+                auth: auth_str,
+                allowFail: false
+            }
+        ]
+    }
+    );
+    return tincan
 }
 
 // Calls when the users starts the project
 function TinCanInit()
 {
+	var actor_obj = null;
+
+	/** enter name manualy **/
     if(CONF["manual_registration"])
     {
-	CONF["name"] = getParameterByName("name");
-	CONF["email"] = getParameterByName("email");
+		CONF["name"] = getParameterByName("name");
+		CONF["email"] = getParameterByName("email");
+
+		actor_obj = {
+			mbox:CONF["email"],
+			name:CONF["name"]
+	 	   }
     }
+    /** if not , get the parameters form the url **/
+	else
+	{
+		actor_obj = JSON.parse(getParameterByName("actor"));
+		console.log(actor_obj);
+	}
+
     tc = initTinCan();
     tc.sendStatement(
 	{
-	    actor:{
-		mbox:CONF["email"],
-		name:CONF["name"]
-	    },
+		actor:actor_obj,
 	    verb:{
 		id:"http://adlnet.gov/expapi/verbs/initialized",
 	    "display":{"en-US":"Initialized","nb":"Startet"}},
@@ -247,13 +279,28 @@ function TinCanComplete()
 {
     if(isSetComplete){return;}
 
+	var actor_obj = null;
+	if(CONF["manual_registration"])
+    {
+		CONF["name"] = getParameterByName("name");
+		CONF["email"] = getParameterByName("email");
+
+		actor_obj = {
+			mbox:CONF["email"],
+			name:CONF["name"]
+	 	   }
+    }
+    /** if not , get the parameters form the url **/
+	else
+	{
+		actor_obj = JSON.parse(getParameterByName("actor"));
+		console.log(actor_obj);
+	}
+
     tc = initTinCan();
     tc.sendStatement(
 	{
-	    actor:{
-		mbox:CONF["email"],
-		name:CONF["name"]
-	    },
+	    actor:actor_obj,
 	    verb:{
 		id:"http://adlnet.gov/expapi/verbs/completed",
 	    "display":{"en-US":"Completed","nb":"Fullførte"}},
