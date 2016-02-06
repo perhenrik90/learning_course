@@ -16,3 +16,17 @@ function markText(textString, color="Yellow")
     document.getElementById("slides").innerHTML = strbody;
  
 }
+
+
+function markSelection(e)
+{
+    if(e.keyCode == 32)
+    {
+	txt = window.getSelection().toString();
+	markText(txt);
+    }
+}
+
+/** mark space as marking key **/
+window.addEventListener("keydown", markSelection); 
+
