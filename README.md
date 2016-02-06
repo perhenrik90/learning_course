@@ -1,4 +1,4 @@
-Learning Course Template
+E-Learning Course Template
 ========================
 A framework to a HTML5 e-learning project. You must have some skills
 in programming for web to use this framework. This project consists of
