@@ -1,4 +1,4 @@
-/***********************************************
+/************************************************
  * Slidework defines the framework for slides
  * Can be seen as the 'slide engine'.
  * 
@@ -105,26 +105,6 @@ function initSlideEngine()
 	pbar.role = "progressbar";
 	pbar.id = "course_progress_bar";
     }
-
-
-
-    // create the buttons
-    pager = document.getElementById("pager");
-    prevbtn = document.createElement("li");
-    a = document.createElement("a");
-    a.innerHTML = "Tilbake";
-    a.onclick = se.previousSlide;
-    prevbtn.appendChild(a);
-    pager.appendChild(prevbtn);
-    
-    nextbtn = document.createElement("li");
-    a = document.createElement("a");
-    a.innerHTML = "Neste";
-    a.onclick = se.nextSlide;
-    nextbtn.appendChild(a);
-    pager.appendChild(nextbtn);
-
-
 
     // init reporting tools 
     if(CONF['type'] == "scorm1.2")
