@@ -36,4 +36,5 @@ Tools developed:
 python manage.py createScorm > imsmanifest.xml
 | Creates an imsmanifest file contained in a SCORM package. 
 
-
+Before you can deplay as a SCORM package you have to remove .py
+(Python tools) and zip the project. 
