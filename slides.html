@@ -26,6 +26,7 @@
     </nav>
 
     <!-- write your slides here -->
+    <div id="slides">
     <div class="slide" title="Introduction">
       <div class="row">
 	<div class="col-md-12">
@@ -96,9 +97,14 @@
       <div class="col-sm-3"></div>
       <div class="col-sm-3 pull-right">
 	<nav>
-	  <ul class="pager" id="pager"></ul>
+	  <!-- back and next buttons -->
+	  <ul class="pager" id="pager">
+	    <li><a onclick="se.previousSlide()">Tilbake</a></li>
+	    <li><a onclick="se.nextSlide()">Neste</a></li>
+	  </ul>
 	</nav>
       </div>
+    </div>
     </div>
   </div>
 
@@ -111,6 +117,7 @@
   <script src="lib/tincan.js"></script>
   <script src="js/slidework.js"></script>
   <script src="js/navbar.js"></script>
+  <script src="js/marker.js"></script>
   <script>
     var se = initSlideEngine();
     initNavBar(se);
